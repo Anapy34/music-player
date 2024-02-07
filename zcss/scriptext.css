@@ -101,7 +101,7 @@ canvas {
   /* background-image: linear-gradient(to bottom right,
       #ff4e4e 0 15%, #f8ff64 40% 60%, #00ce1a 85% 100%); */
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
