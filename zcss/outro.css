@@ -18,20 +18,17 @@
   width: 100%;
   top: -4px;
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  /* align-content: center; */
 }
 
 #app .player__content-small {
   opacity: 1;
-  margin-left: 72px;
+
   padding: 8px 10px 0 0;
   display: flex;
   justify-content: space-between;
   transition: opacity 350ms ease;
   width: 94%;
-  position: absolute;
+
   top: 0;
   transition: all 350ms ease;
   margin-right: 10px;
