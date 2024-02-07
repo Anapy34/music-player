@@ -21,33 +21,34 @@
 
 <body class="opening hide-UI view-2D zoom-large data-close controls-close">
 
+
   <div class="divlateral">
     <span class="material-icons" onclick="toggleDiv()">sync_alt</span>
-    <!-- <button onclick="toggleDiv()">Botão 01</button> -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, suscipit magni, quas optio, sint et architecto
+      saepe ipsum aliquid natus facere iure maxime quaerat ducimus tenetur quae quod vitae laboriosam.</p>
+
   </div>
+  <!-- <button onclick="toggleDiv()">Botão 01</button> -->
 
 
 
   <div class="abody">
 
-    <div class="essa">
+     <div class="essa">
       <div class="triangle left">
         <span class="bvindo">Bem Vindo !</span>
       </div>
       <div class="triangle right">
         <span class="bvindo">Bem Vindo !</span>
       </div>
-    </div> <!-- essa -->
+    </div>  
+    <!-- essa -->
 
-    <div class="btnessa" onclick="moverDivParaZero()">
-      <i class="fas fa-external-link-alt"></i>
-      <!-- <button class="btnessa" onclick="moverDivParaZero()">Botão 02</button> -->
+     <div class="btnessa" onclick="moverDivParaZero()">
+      <i class="fas fa-external-link-alt"></i>     
     </div>
+    <!-- <button class="btnessa" onclick="moverDivParaZero()">Botão 02</button> -->
 
-    <!-- <div class="btnLateral">
-      <i class="fas fa-external-link-alt"></i>
-    </div>
-   -->
     <div class="btnLateral">
       <span class="material-icons" onclick="toggleDiv()">sync_alt</span>
     </div>
@@ -203,9 +204,8 @@
 
 
 
-
     <div id="app">
-      <div id="player" class="player player--reduced player--bottom light-theme">
+      <div id="player" class="player player--reduced player--bottom">
         <div class="player__content">
           <img id="thumb" class="album-image" src="" alt="Album image">
           <div class="player__content-small" id="small">
@@ -232,10 +232,12 @@
                 <span class="prev-btn material-icons">skip_previous</span>
                 <span class="play-pause-btn material-icons">play_arrow</span>
                 <span class="next-btn material-icons">skip_next</span>
-                <span class="mute-btn material-icons mute-icon">volume_up</span>
-                <input type="range" class="volume-slider" min="0" max="1" step="0.1" oninput="setVolume()">
                 <span class="show-albums-btn material-icons">album</span>
                 <span class="show-songs-btn material-icons">subject</span>
+                <div class="cxvolume">
+                  <span class=" mute-btn material-icons mute-icon">volume_up</span>
+                  <input type="range" class="volume-slider" min="0" max="1" step="0.1" oninput="setVolume()">
+                </div>
               </div>
             </div>
           </div>
@@ -245,16 +247,16 @@
           <div class="player__content-full">
 
             <div class="cxaudio">
-              <div class="audio-container light-theme" id="audioContainer">
+              <div class="audio-container">
                 <!-- <span id="pequeno" class="pequeno material-icons">south_east</span> -->
-                <div class="theme-options">
+                <!-- <div class="theme-options">
                   <span class="material-icons">color_lens</span>
                   <div class="theme-option light" onclick="changeTheme('light')"></div>
                   <div class="theme-option gray" onclick="changeTheme('gray')"></div>
                   <div class="theme-option bluedark" onclick="changeTheme('bluedark')"></div>
                   <div class="theme-option greendark" onclick="changeTheme('greendark')"></div>
                   <div class="theme-option dark" onclick="changeTheme('dark')"></div>
-                </div>
+                </div> -->
 
                 <audio class="audio-player" crossorigin>
                   <source class="audio-source" src="" type="audio/mp3">
@@ -276,21 +278,27 @@
                   <span class="prev-btn material-icons">skip_previous</span>
                   <span class="play-pause-btn material-icons">play_arrow</span>
                   <span class="next-btn material-icons">skip_next</span>
-                  <span class="mute-btn material-icons mute-icon">volume_up</span>
-                  <input type="range" class="volume-slider" min="0" max="1" step="0.1" oninput="setVolume()">
                   <span class="show-albums-btn material-icons">album</span>
                   <span class="show-songs-btn material-icons">list</span>
-                </div>
 
-                <div class="cxtempovolume">
-                  <input type="range" class="progress-bar" min="0" max="100" value="0" step="0.1"
-                    oninput="setProgress()">
-                  <div class="tempo">
-                    <span class="current-time">00:00</span>
-                    <span class="duration">00:00</span>
+                  <div class="volume-slider2">
+                    <div class="cxvolume">
+                      <span class=" mute-btn material-icons mute-icon">volume_up</span>
+                      <input type="range" class="volume-slider" min="0" max="1" step="0.1" oninput="setVolume()">
+                    </div>
+                  </div>
+
+                </div>
+                <div class="cxtempovolume2">
+                  <div class="cxtempovolume">
+                    <input type="range" class="progress-bar" min="0" max="100" value="0" step="0.1"
+                      oninput="setProgress()">
+                    <div class="tempo">
+                      <span class="current-time">00:00</span>
+                      <span class="duration">00:00</span>
+                    </div>
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -319,58 +327,61 @@
     <div class="album-info-select">
       <span class="btn-as-select show-albums-btn material-icons">album</span>
     </div>
- <!-- fim menu album e lista de musicas -->
+    <!-- fim menu album e lista de musicas -->
 
     <div class="analizador">
       <canvas></canvas>
     </div>
 
 
-    <script src="./zjs/songalbuns.js"></script>
-    <script src="./zjs/scriptext.js"></script>
-    <script src='https://michalstocki.github.io/css-transition-walker/src/CSSTransitionWalker.js'></script>
-    <script src="./zjs/ourto.js"></script>
-    <script src="./zjs/anima.js"></script>
-    <script src="./zjs/solar.js"></script>
-    <!-- <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.js"></script> -->
-
-    <script type="module">
-      import AudioMotionAnalyzer from './zjs/audioMotion-analyzer.js';
-
-      // audio source
-      const audioEl = document.querySelector('.audio-player');
-
-      // instantiate analyzer
-      const audioMotion = new AudioMotionAnalyzer(
-        // document.getElementById('analizador'),
-        document.querySelectorAll('.analizador'),
-        {
-          source: audioEl,
-          height: window.innerHeight - 50,
-          // you can set other options below - check the docs!
-          mode: 4,
-          barSpace: 1,
-          ledBars: true,
-        }
-      );
-    </script>
-
-    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
-
-    <script type="text/javascript">
-      if (typeof jQuery == 'undefined') {
-        document.write(unescape("%3Cscript src='js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
-      }
-    </script>
-    <script src="js/prefixfree.min.js"></script>
-    <script src="js/scripts.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/index.js"></script>
-
-
-
   </div>
+  <!-- fim abody -->
+
+
+
+
+  <script src="./zjs/songalbuns.js"></script>
+  <script src="./zjs/scriptext.js"></script>
+  <script src='https://michalstocki.github.io/css-transition-walker/src/CSSTransitionWalker.js'></script>
+  <script src="./zjs/ourto.js"></script>
+  <script src="./zjs/anima.js"></script>
+  <script src="./zjs/solar.js"></script>
+  <!-- <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.js"></script> -->
+
+  <script type="module">
+    import AudioMotionAnalyzer from './zjs/audioMotion-analyzer.js';
+
+    // audio source
+    const audioEl = document.querySelector('.audio-player');
+
+    // instantiate analyzer
+    const audioMotion = new AudioMotionAnalyzer(
+      // document.getElementById('analizador'),
+      document.querySelectorAll('.analizador'),
+      {
+        source: audioEl,
+        height: window.innerHeight - 50,
+        // you can set other options below - check the docs!
+        mode: 4,
+        barSpace: 1,
+        ledBars: true,
+      }
+    );
+  </script>
+
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+
+  <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+      document.write(unescape("%3Cscript src='js/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+  </script>
+  <script src="js/prefixfree.min.js"></script>
+  <script src="js/scripts.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/index.js"></script>
+
 </body>
 
 </html>
