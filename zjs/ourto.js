@@ -97,12 +97,15 @@ const panend = (fx, e) => {
 }
 
 player.addEventListener('touchstart', panstart)
-player.addEventListener('touchmove', e => {
-  panmove(go1, e)
-})
-player.addEventListener('touchend', e => {
-  panend(release1, e)
-})
+
+// player.addEventListener('touchmove', e => {
+//   panmove(go1, e)
+// })
+
+// player.addEventListener('touchend', e => {
+//   panend(release1, e)
+// })
+
 thumb.addEventListener('click', () => {
   if(actual_ui !== 'playing') {
     ui('playing')
@@ -117,14 +120,17 @@ thumb.addEventListener('click', () => {
 // const small = document.getElementById('small')
 
 suggestions.addEventListener('touchstart', panstart)
-suggestions.addEventListener('touchmove', e => {
-  e.stopPropagation()
-  panmove(go2, e)
-})
-suggestions.addEventListener('touchend', e => {
-  e.stopPropagation()
-  panend(release2, e)
-})
+
+// suggestions.addEventListener('touchmove', e => {
+//   e.stopPropagation()
+//   panmove(go2, e)
+// })
+
+// suggestions.addEventListener('touchend', e => {
+//   e.stopPropagation()
+//   panend(release2, e)
+// })
+
 suggestions.addEventListener('click', e => {
   e.stopPropagation()
   if(actual_ui === 'suggestions') {
@@ -133,4 +139,6 @@ suggestions.addEventListener('click', e => {
     ui('suggestions')
   }
 })
+
+
 
