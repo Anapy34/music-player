@@ -35,7 +35,7 @@
 }
 
 #app .miniplayer_cxtexto {
-  width: 15%;
+  width: 35%;
 }
 
 #app .miniplayer_texto {
@@ -115,16 +115,17 @@
 }
 
 #app .player__content-full {
-  min-width: 270px;
-  width: 50%;
-  height: auto;
-  height: auto;
   position: absolute;
+  /* top: 50%; */
+  left: 50%;
+  bottom: -14%;
+  transform: translate(-50%, -50%);
+  min-width: 270px;
+  width: 60%;
+  height: 38%;
   /* background: aquamarine; */
   margin: 0 auto;
-  position: relative;
   padding: 10px;
-  bottom: -83px;
   transition: all 350ms ease;
 }
 
