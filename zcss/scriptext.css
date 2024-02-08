@@ -97,7 +97,7 @@ canvas {
   font-size: 0px;
   /* clip-path: polygon(0 0, 100% 0%, 100% 100%); */
   position: absolute;
-  color: #555;
+  color: rgb(85 85 85 / 50%);
   z-index: 2;
 }
 
@@ -935,7 +935,7 @@ a:visited {
     position: absolute;
     bottom: 210px;
     transform: rotate(-90deg);
-    left: -130px;
+    left: -110px;
     /* left: calc(-35% - 30px); */
     width: 300px;
   }
