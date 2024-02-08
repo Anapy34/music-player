@@ -970,6 +970,20 @@ a:visited {
     left: 28px;
   }
 
+  .cxbtnadd {
+    top: 10px;
+    right: 100px;
+    position: absolute;
+    color: #555;
+  }
+
+  .ph1 {
+    position: absolute;
+    width: 150px;
+    left: 15%;
+}
+
+  
   /* .controlsplayer {
     padding: 2px 40px;
   } */
