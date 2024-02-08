@@ -1,0 +1,95 @@
+
+
+.btnessa {
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px;
+  color: #fff;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+
+.btncor {
+  top: 3px!important;
+  right: 3px!important;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: auto;
+  transform: translate(0%, 0%);
+  background-color: rgb(89 203 18 / 50%);
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 0px;
+  clip-path: polygon(0 0, 100% 0%, 100% 100%);
+}
+
+.fa-external-link-alt:before {
+  content: "\f35d";
+  color: #59cb12;
+}
+
+
+.triangle {
+/* opacity: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* pointer-events: none; */
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 4;
+  background: linear-gradient(to top, #003367 0%, #c94b02 100%);
+  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.triangle.left {
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+.triangle.right {
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+.open .triangle.left {
+  clip-path: polygon(0 0, 0 100%, 0 100%);
+}
+
+.open .triangle.right {
+  clip-path: polygon(100% 0, 100% 0, 100% 100%);
+}
+
+.left {
+  width: 100%;
+  z-index: 5;
+  font-size: 50px;
+  color: #fff;
+}
+
+.right {
+  width: 100%;
+  z-index: 5;
+  right: 0;
+  top: 0;
+  font-size: 50px;
+  color: #fff;
+}
+
+.leftadd {
+  width: 0;
+  z-index: -1;
+  font-size: 0px;
+
+}
+
+.rightadd {
+  width: 0%;
+  z-index: -1;
+  font-size: 0px;
+}
