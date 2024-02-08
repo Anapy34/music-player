@@ -551,6 +551,7 @@ span.normal {
   padding: 10px;
 }
 
+
 .song-info-select ul {
   margin-top: 30px;
   width: 100%;
@@ -669,9 +670,9 @@ input[type="range"] {
   /*  slider progress trick  */
   overflow: hidden;
   border-radius: 16px;
-  height: 4px;
+  height: 6px;
   margin-top: 10px;
-  opacity: 50%;
+  opacity: 30%;
 }
 
 /* Track: webkit browsers */
@@ -716,7 +717,7 @@ input[type="range"]::-moz-range-thumb {
   border: 1px solid var(--cor03);
   /*  slider progress trick  */
   box-shadow: -407px 0 0 400px var(--cor02);
-  opacity: 50%;
+  opacity: 30%;
 }
 
 
@@ -934,7 +935,7 @@ a:visited {
     position: absolute;
     bottom: 210px;
     transform: rotate(-90deg);
-    left: -120px;
+    left: -130px;
     /* left: calc(-35% - 30px); */
     width: 300px;
   }
