@@ -252,6 +252,7 @@ button:hover {
   display: flex;
   width: auto;
   height: auto;
+
 }
 
 
@@ -260,6 +261,7 @@ button:hover {
   min-width: 50px !important;
   margin-top: 10px;
   left: 0px;
+  z-index: 3;
 }
 
 .volume-slider>*:first-child {
@@ -269,6 +271,7 @@ button:hover {
 .progress-bar {
   width: 100%;
   margin-top: 10px;
+  z-index: 3;
 }
 
 .tempo {
@@ -921,7 +924,7 @@ a:visited {
     position: absolute;
     bottom: 120px;
     /* left: calc(80% - 30px); */
-    right: 15px;
+    right: -25px;
   }
 
   .cxtempovolume {
@@ -931,7 +934,7 @@ a:visited {
     position: absolute;
     bottom: 210px;
     transform: rotate(-90deg);
-    left: -195px;
+    left: -120px;
     /* left: calc(-35% - 30px); */
     width: 300px;
   }
@@ -939,13 +942,15 @@ a:visited {
   .cxtempovolume2 {
     position: absolute;
     bottom: -70px;
-    left: 0;
+    left: -45px;
+    z-index: 3;
   }
 
   .volume-slider2 {
     position: absolute;
-    right: -80px;
+    right: -45px;
     bottom: -70px;
+    z-index: 3;
   }
 
   .duration,
