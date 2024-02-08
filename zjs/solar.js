@@ -41,36 +41,3 @@ $(window).load(function(){
 
 });
 
-
-// Captura a div universo
-const universeDiv = document.getElementById('universe');
-
-// Variáveis para armazenar as coordenadas do toque anterior
-let lastX = 0;
-let lastY = 0;
-
-// Adiciona um ouvinte de eventos para o evento touchmove
-universeDiv.addEventListener('touchmove', function(e) {
-  // Previne o comportamento padrão do toque (por exemplo, rolar a página)
-  e.preventDefault();
-
-  // Captura o toque atual
-  const touch = e.touches[0];
-
-  // Calcula a diferença entre as coordenadas do toque atual e as coordenadas do toque anterior
-  const deltaX = touch.clientX - lastX;
-  const deltaY = touch.clientY - lastY;
-
-  // Atualiza as coordenadas do toque anterior com as coordenadas do toque atual
-  lastX = touch.clientX;
-  lastY = touch.clientY;
-
-  // Calcula o fator de escala com base no movimento dos dedos
-  const scaleFactor = 1.05; // Fator de escala arbitrário
-  const newWidth = universeDiv.offsetWidth * scaleFactor;
-  const newHeight = universeDiv.offsetHeight * scaleFactor;
-
-  // Aplica o zoom na div ajustando sua largura e altura
-  universeDiv.style.width = newWidth + 'px';
-  universeDiv.style.height = newHeight + 'px';
-});
