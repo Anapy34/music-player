@@ -19,7 +19,7 @@
 <body class="opening hide-UI view-2D zoom-large data-close controls-close">
 
   <!-- bem vindo -->
-  <!-- <div class="triangle left">
+  <div class="triangle left">
     <span class="bvindo">Bem Vindo !</span>
   </div>
   <div class="triangle right">
@@ -27,7 +27,7 @@
   </div>
   <div class="btnessa">
     <i class="fas fa-external-link-alt"></i>
-  </div> -->
+  </div>
 
 
   <div class="cxbtnadd">
@@ -44,6 +44,12 @@
 
 
   <div class="abody">
+
+    <div id="container">
+      <img id="logu"
+        src="https://seeklogo.com/images/M/music-icon-logo-3B31E8F1BF-seeklogo.com.png">
+    </div>
+
 
     <!-- aqui inicia o sistema solar -->
     <div id="navbar">
@@ -346,9 +352,9 @@
 
     // callback function
     function pulse(analyzer) {
-      const sun = document.getElementById('sun');
+      const sun = document.getElementById('logu');
       // use song energy to scale logo image
-      sun.height = 50 + analyzer.getEnergy() * 100;
+      sun.height = 20 + analyzer.getEnergy() * 50;
     }
 
 
@@ -359,19 +365,29 @@
     const audioMotion = new AudioMotionAnalyzer(
       // document.getElementById('analizador'),
       document.querySelectorAll('.analizador'), {
-        source: audioEl,
-        height: window.innerHeight - 50,
-        mode: 0,
-        barSpace: .1,
-        ledBars: false,
-        onCanvasDraw: pulse,
-        minFreq: 10,
-        maxFreq: 24000,
-        showPeaks: false,
-        reflexFit: false,
-        splitGradient:true,
-      }
+      source: audioEl,
+      height: window.innerHeight - 50,
+      mode: 0,
+      barSpace: .75,
+      ledBars: false,
+      onCanvasDraw: pulse,
+      minFreq: 20,
+      maxFreq: 22000,
+      // showPeaks: false,
+      // reflexFit: false,
+      // splitGradient: true,
+      ansiBands: true,
+      alphaBars: true,
+      channelLayout: 'single',
+      colorMode: 'bar-level',
+      gradient: 'rainbow',
+      minDecibels: -60,
+      maxDecibels: -30,
+    }
     );
+
+    // display module version
+    document.getElementById('version').innerText = `v${AudioMotionAnalyzer.version}`;
 
 
   </script>
