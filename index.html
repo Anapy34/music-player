@@ -19,7 +19,7 @@
 <body class="opening hide-UI view-2D zoom-large data-close controls-close">
 
   <!-- bem vindo -->
-  <div class="triangle left">
+  <!-- <div class="triangle left">
     <span class="bvindo">Bem Vindo !</span>
   </div>
   <div class="triangle right">
@@ -27,10 +27,8 @@
   </div>
   <div class="btnessa">
     <i class="fas fa-external-link-alt"></i>
-  </div>
-  <!-- <div class="btnLateral">
-    <span class="btnadd material-icons">sync_alt</span>
   </div> -->
+
 
   <div class="cxbtnadd">
     <span class="btnadd material-icons">sync_alt</span>
@@ -346,22 +344,36 @@
   <script type="module">
     import AudioMotionAnalyzer from './zjs/audioMotion-analyzer.js';
 
+    // callback function
+    function pulse(analyzer) {
+      const sun = document.getElementById('sun');
+      // use song energy to scale logo image
+      sun.height = 50 + analyzer.getEnergy() * 100;
+    }
+
+
     // audio source
     const audioEl = document.querySelector('.audio-player');
 
     // instantiate analyzer
     const audioMotion = new AudioMotionAnalyzer(
       // document.getElementById('analizador'),
-      document.querySelectorAll('.analizador'),
-      {
+      document.querySelectorAll('.analizador'), {
         source: audioEl,
         height: window.innerHeight - 50,
-        // you can set other options below - check the docs!
-        mode: 4,
-        barSpace: 1,
-        ledBars: true,
+        mode: 0,
+        barSpace: .1,
+        ledBars: false,
+        onCanvasDraw: pulse,
+        minFreq: 10,
+        maxFreq: 24000,
+        showPeaks: false,
+        reflexFit: false,
+        splitGradient:true,
       }
     );
+
+
   </script>
 
   <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
