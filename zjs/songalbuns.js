@@ -1,4 +1,16 @@
 window.albums = [
+  {
+    name: 'Eitan Reiter',
+    artist: 'Remix',
+    image: 'https://anapy34.github.io/music-player/Eitan_Reiter/Eitan_Reiter_remix.jpg',
+    songs: [
+      {
+        name: 'Ups And Downs',
+        url: 'https://anapy34.github.io/music-player/Eitan_Reiter/Ups_%26_Downs_%20Eitan_Reiter.mp3'
+      },
+    
+    ],
+  },
 
   {
     name: 'Engenheiro do Hawaii',
@@ -141,15 +153,6 @@ window.albums = [
         url: 'https://anapy34.github.io/video-player/akd%20progressing/08%20-%20Akd%20-%20New%20Style%20Trance.mp3'
       },
     ],
-  },
-  
+  },  
   
 ];
-
-
-
-
-
-
-
-
