@@ -432,9 +432,7 @@ document.addEventListener('DOMContentLoaded', function () {
   showSongsBtn.forEach(btn => btn.addEventListener('click', toggleSongs));
 
 
-  selectAlbum(3); // Inicializa a interface com álbum
+  selectAlbum(0); // Inicializa a interface com álbum
   selectSong(0); // Inicializa a interface com a música do álbum
   loadSong();
 });
-
-
