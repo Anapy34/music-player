@@ -4,6 +4,15 @@
   --cor03: #b9700e;
 }
 
+#logu {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translate(-50%, -50%);
+  /* width: 10%; */
+  /* height: auto; */
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
