@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function setVolume(event) {
-    const volume = event ? event.target.value : 0.1; //  defina altura inicial do volume
+    const volume = event ? event.target.value : 0.8; //  defina altura inicial do volume
     audioPlayer.volume = volume;
 
     // Atualizar a posição do slider em todas as instâncias
