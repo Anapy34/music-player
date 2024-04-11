@@ -1,6 +1,83 @@
 
-document.addEventListener('DOMContentLoaded', function () {
-  const audioPlayer = document.querySelector('.audio-player');
+// Função para criar o HTML da div#bbody com o player de áudio e controles
+function criarBBodyHTML(urlMusica) {
+  const bbodyHTML = `
+    <div id="bbody">
+      <div id="fundo"></div>
+      <div id="cxaudio">
+        <div class="audio-container">
+          <div class="cx-album-lista">
+            <span class="show-albums-btn material-icons">album</span>
+            <span class="show-songs-btn material-icons">list</span>
+          </div>
+
+          <audio class="audio-player" crossorigin>
+            <source class="audio-source" src="${urlMusica}" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio>
+
+          <div id="cx-album-img" class="cxalbum-img">
+            <img class="album-image" src="" alt="Album image">
+          </div>
+
+          <div id="002" class="album-song-info">
+            <p class="album-name"></p>
+            <p class="artist-name"></p>
+            <p class="song-name" id="song-name"></p>
+          </div>
+
+          <div class="controls">
+            <span class="prev-btn material-icons">skip_previous</span>
+            <span class="play-pause-btn material-icons play-pause-icon">play_arrow</span>
+            <span class="next-btn material-icons">skip_next</span>
+            <span class="mute-btn material-icons mute-icon">volume_up</span>
+            <input type="range" class="volume-slider" min="0" max="1" step="0.1" oninput="setVolume()">
+          </div>
+
+          <div class="cxtempovolume">
+            <input type="range" class="progress-bar" min="0" max="100" value="0" step="0.1">
+            <div class="tempo">
+              <span class="current-time">00:00</span>
+              <span class="duration">00:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="album-info" class="album-info-select"></div>
+      <div id="song-info" class="song-info-select"></div>
+    </div>
+  `;
+  return bbodyHTML;
+}
+
+// Função para buscar a div .blog-player0 e executar as músicas
+function executarMusicas() {
+  const blogPlayer = document.querySelector('.blog-player0');
+  if (blogPlayer) {
+    const scriptMusicas = document.querySelector('script[type="text/javascript"]');
+    if (scriptMusicas) {
+      eval(scriptMusicas.textContent); // Avaliar o conteúdo do script para obter as músicas
+
+      // Verificar se a constante albums está definida
+      if (typeof albums !== 'undefined' && Array.isArray(albums) && albums.length > 0) {
+        const primeiraMusica = albums[0].songs[0].url; // Obter a URL da primeira música
+        const bbodyHTML = criarBBodyHTML(primeiraMusica);
+        blogPlayer.innerHTML = bbodyHTML;
+
+        // Adicionar eventos de controle
+        adicionarEventosControle();
+      }
+    }
+  }
+}
+
+
+
+// Função para adicionar eventos de controle ao player de áudio
+function adicionarEventosControle() {
+
+const audioPlayer = document.querySelector('.audio-player');
   const albumImageDisplay = document.querySelector('.album-image');
   const playPauseButtons = document.querySelectorAll('.play-pause-btn');
   const prevButtons = document.querySelectorAll('.prev-btn');
@@ -18,65 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const durationDisplay = document.querySelector('.duration');
   const muteButton = document.querySelector('.mute-btn');
 
-  const albums = [
-    {
-      name: 'Engenheiro do Hawaii',
-      artist: 'Acustico',
-      songs: [
-        {
-          name: 'Ate o fim',
-          url: 'https://anapy34.github.io/video-player/engenheiro%20do%20hawaii%20acustico/02.%20At%C3%A9%20O%20Fim%20(Ao%20Vivo).mp3'
-        },
-        {
-          name: 'Vida Real',
-          url: 'https://anapy34.github.io/video-player/engenheiro%20do%20hawaii%20acustico/03.%20Vida%20Real%20(Ao%20Vivo).mp3'
-        }
-      ],
-      image: 'https://i.scdn.co/image/ab67616d0000b273f98de08cd017b515c9e61344'
-    },
-    {
-      name: 'cicero',
-      artist: 'canções de Apartamento',
-      songs: [
-        {
-          name: 'tempo de pipa',
-          url: 'https://anapy34.github.io/video-player/cicero/Can%C3%A7%C3%B5es%20De%20Apartamento%20MP3/01%20Tempo%20De%20Pipa.mp3'
-        },
-        {
-          name: 'Vagalumes Cegos',
-          url: 'https://anapy34.github.io/video-player/cicero/Canções De Apartamento MP3/02 Vagalumes Cegos.mp3'
-        }
-      ],
-      image: 'https://i.scdn.co/image/ab67616d0000b273bad7f5839b4b166fd8b323e5'
-    },
-    {
-      name: 'akd',
-      artist: 'Progressing',
-      image: 'https://f4.bcbits.com/img/a2095838675_10.jpg',
-      songs: [
-        {
-          name: 'Archaic Myth',
-          url: 'https://anapy34.github.io/video-player/akd%20progressing/01%20-%20Akd%20-%20Archaic%20Myth.mp3'
-        },
-        {
-          name: 'Evolving Spirits',
-          url: 'https://anapy34.github.io/video-player/akd%20progressing/03%20-%20Akd%20-%20Evolving%20Spirits.mp3'
-        },
-        {
-          name: 'Crystal Storm Breath',
-          url: 'https://anapy34.github.io/video-player/akd%20progressing/04%20-%20Akd%20-%20Crystal%20Storm%20Breath.mp3'
-        },
-        {
-          name: 'Tender Elevation',
-          url:' https://anapy34.github.io/video-player/akd%20progressing/07%20-%20Akd%20-%20Tender%20Elevation.mp3'
-        },
-        {
-          name: 'New Style Trance',
-          url: 'https://anapy34.github.io/video-player/akd%20progressing/08%20-%20Akd%20-%20New%20Style%20Trance.mp3'
-        },
-      ],
-},
-  ];
 
   let currentAlbumIndex = 0;
   let isAlbumInfoOpen = false;
@@ -423,4 +441,32 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   loadAlbumInfo(albums[currentAlbumIndex]);
-});
+
+}
+
+// Chamada da função para executar as músicas
+executarMusicas();
+
+// esconder=0, mostra=1, vazio='#'
+function esconderItens() {
+  const elementos = {
+    '#fundo':'#',
+    '#cx-album-img': '#',
+    '#album-info':'#',
+    '#song-info': '#',
+    '.album-name': '#',
+    '.artist-name': '#',
+    '.song-name': '#'
+  };
+
+  for (const elemento in elementos) {
+    const visivel = elementos[elemento];
+    const elementoSelecionado = document.querySelector(elemento);
+    if (elementoSelecionado) {
+      elementoSelecionado.style.display = visivel === 1 ? 'block' : visivel === 0 ? 'none' : '#';
+    }
+  }
+}
+
+// Chamada da função para esconder ou mostrar os itens conforme especificado
+esconderItens();
